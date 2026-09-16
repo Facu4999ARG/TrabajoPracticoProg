@@ -1,53 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reserva - Sushi</title>
+    <link rel="stylesheet" href="cssushi.css">
 </head>
+
 <body>
+
     <header>
-        <h1>Sushi</h1>
+        <h1>TamagoSushi</h1>
     </header>
 
+    <nav>
+        <a href="Inicio.html">Inicio</a>
+    </nav>
+
+    <main>
+
     <div class="Fotos">
-        <img src="https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/64EF898D-2EDD-4B47-A456-E6A7D137AC91/Derivates/00f76cac-64f6-4573-be4f-e604a7d99143.jpg">
-    </div>
 
-    <div class="Formulario">
+         <img class="FotoPrincipal" src="https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/64EF898D-2EDD-4B47-A456-E6A7D137AC91/Derivates/00f76cac-64f6-4573-be4f-e604a7d99143.jpg">
+
+        <div class="FotosChicas">
+
+         <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c">
         
-        <h2>Personas</h2>
-        <select name="lugares">
-            <option value="1">1 Persona</option>
-            <option value="2">2 Personas</option>
-            <option value="3">3 Personas</option>
-            <option value="4">4 Personas</option>
-        </select>
+            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754">
 
-        <h2>Fecha</h2>
-        <input type="date" name="fecha">
-
-
-        <h2>Hora</h2>
-        <input type="radio" name="hora" id="12">
-        <option value="12:00">12:00</option>
-        <input type="radio" name="hora" id="13">
-        <option value="13:00">13:00</option>
-        <input type="radio" name="hora" id="14">
-        <option value="14:00">14:00</option>
-
-        <h2>Nombre</h2>
-        <input type="text" name="nombre">
-        <h2>Apellido</h2>
-        <input type="text" name="apellido">
-        <h2>Correo</h2>
-        <input type="email" name="correo">
-
-        <button type="submit">
-            Reservar
-        </button>
+        </div>
 
     </div>
-    
+        <section class="Reserva">
+            <h1>Reservá tu lugar</h1>
+        <form class="Formulario">
+
+            <h2>Personas</h2>
+            <select name="lugares">
+                <option value="1">1 Persona</option>
+                <option value="2">2 Personas</option>
+                <option value="3">3 Personas</option>
+                <option value="4">4 Personas</option>
+            </select>
+
+            <h2>Fecha</h2>
+            <input type="date" name="fecha">
+
+            <h2>Hora</h2>
+            <div class="horas">
+                <label>
+            <input type="radio" name="hora" value="12:00" required> 12:00
+                </label>
+
+            <label>
+            <input type="radio" name="hora" value="13:00"> 13:00
+            </label>
+
+            <label>
+            <input type="radio" name="hora" value="14:00"> 14:00
+            </label>
+
+            </div>
+
+            <h2>Nombre</h2>
+            <input type="text" name="nombre">
+
+            <h2>Apellido</h2>
+            <input type="text" name="apellido">
+
+            <h2>Correo</h2>
+            <input type="email" name="correo">
+
+            <button type="submit">
+                Reservar
+            </button>
+
+        </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Sushi</p>
+    </footer>
+
+    <script src="Sushijava.js"></script>
+
 </body>
 </html>
