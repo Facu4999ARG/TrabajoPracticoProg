@@ -141,3 +141,63 @@ footer {
 
 
 }
+
+
+@media (max-width: 900px) {
+
+    .Fotos {
+        width: 90%;
+        height: 350px;
+        margin: 20px auto;
+    }
+
+    .Reserva {
+        width: 80%;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+
+    .Fotos {
+        width: 90%;
+        height: auto;
+        margin: 20px auto;
+        flex-direction: column;
+    }
+
+    .FotoPrincipal {
+        width: 100%;
+        height: 250px;
+    }
+
+    .FotosChicas {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+    }
+
+    .FotosChicas img {
+        width: 50%;
+        height: 150px;
+    }
+
+    .Reserva {
+        width: 90%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .horas {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .Formulario button {
+        font-size: 14px;
+    }
+}
