@@ -129,3 +129,15 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+#listareservas {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+
+
+
+}
