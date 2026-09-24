@@ -1,6 +1,19 @@
-const formulario = document.querySelector(".Formulario")
+const formulario = document.querySelector(".Formulario");
 
-console.log(formulario);
+const botonreserva = document.querySelector("#btnmisreservas");
+const listareservas = document.querySelector("#listareservas");
+const botoneliminar = document.querySelector("#btneliminar");
+const botonmodificar = document.querySelector("#btnmodificar");
+
+const reservaGuardada = localStorage.getItem("reserva");
+
+if (reservaGuardada) {
+    botoneliminar.style.display = "block";
+    botonmodificar.style.display = "block";
+} else {
+    botoneliminar.style.display = "none";
+    botonmodificar.style.display = "none";
+}
 
 formulario.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -24,28 +37,25 @@ formulario.addEventListener("submit", function(event) {
     localStorage.setItem("reserva", JSON.stringify(reserva));
 
     alert("¡Reserva hecha!");
+
     botoneliminar.style.display = "block";
+    botonmodificar.style.display = "block";
 });
 
-const botonreserva = document.querySelector("#btnmisreservas");
-const listareservas = document.querySelector("#listareservas");
-const botoneliminar = document.querySelector("#btneliminar");
-
-const reservaGuardada = localStorage.getItem("reserva");
-    if (reservaGuardada) {
-        botoneliminar.style.display = "block";
-    }
-
-
 botonreserva.addEventListener("click", function() {
+
     if (listareservas.style.display === "block") {
+
         listareservas.style.display = "none";
+
     } else {
+
         const reservaGuardada = JSON.parse(localStorage.getItem("reserva"));
 
         listareservas.style.display = "block";
 
         if (reservaGuardada) {
+
             listareservas.innerHTML =
                 "<h3>Mis reservas</h3>" +
                 "<p><strong>Personas:</strong> " + reservaGuardada.personas + "</p>" +
@@ -54,14 +64,39 @@ botonreserva.addEventListener("click", function() {
                 "<p><strong>Nombre:</strong> " + reservaGuardada.nombre + "</p>" +
                 "<p><strong>Apellido:</strong> " + reservaGuardada.apellido + "</p>" +
                 "<p><strong>Correo:</strong> " + reservaGuardada.correo + "</p>";
+
         } else {
+
             listareservas.innerHTML = "<p>No hay reservas guardadas.</p>";
+
         }
     }
+});
 
-    
+botonmodificar.addEventListener("click", function() {
 
-    botoneliminar.addEventListener("click", function() {
+    const reservaGuardada = JSON.parse(localStorage.getItem("reserva"));
+
+    if (reservaGuardada) {
+
+        formulario.lugares.value = reservaGuardada.personas;
+        formulario.fecha.value = reservaGuardada.fecha;
+        formulario.nombre.value = reservaGuardada.nombre;
+        formulario.apellido.value = reservaGuardada.apellido;
+        formulario.correo.value = reservaGuardada.correo;
+
+        const horarios = document.querySelectorAll('input[name="hora"]');
+
+        for (let i = 0; i < horarios.length; i++) {
+
+            if (horarios[i].value === reservaGuardada.hora) {
+                horarios[i].checked = true;
+            }
+        }
+    }
+});
+
+botoneliminar.addEventListener("click", function() {
 
     localStorage.removeItem("reserva");
 
@@ -69,8 +104,9 @@ botonreserva.addEventListener("click", function() {
     listareservas.style.display = "none";
 
     botoneliminar.style.display = "none";
+    botonmodificar.style.display = "none";
+
+    formulario.reset();
 
     alert("Reserva eliminada");
 });
-});
-
