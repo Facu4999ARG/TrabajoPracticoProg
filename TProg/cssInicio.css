@@ -1,60 +1,72 @@
 body {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    background-color: #f4f4f6;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+background-color: #151515;
 }
+
 header {
-    background-color: #5100ff; 
-    color: white; 
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+background-color: #f8f8f8;
+color: #151515;
+padding: 20px;
+text-align: center;
+width: 100%;
 }
+
 header,
 body > h1 {
-    width: 100%;
-    text-align: center;
-    font-family: Arial;
+width: 100%;
+text-align: center;
+font-family: Arial, sans-serif;
 }
 
+nav {
+padding: 15px;
+}
+
+nav a {
+color: #c62828;
+margin: 0 15px;
+font-family: Arial, sans-serif;
+font-size: 20px;
+font-weight: bold;
+}
 
 .tarjeta {
-    width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    overflow: hidden;
-    font-family: Arial;
-    background-color: white;
+width: 300px;
+border: 1px solid #444;
+border-radius: 20px;
+overflow: hidden;
+font-family: Arial, sans-serif;
+background-color: #222;
 }
 
 .tarjeta > img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+width: 100%;
+height: 150px;
+object-fit: cover;
 }
 
 .contenido {
-    padding: 15px;
+padding: 15px;
+color: #e6e6e6;
 }
 
-
 .contenido h3 {
-    margin: 10px 0;
+margin: 10px 0;
+color: #e6e6e6;
 }
 
 footer {
-    background-color: #5100ff; 
-    color: white; 
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-}   
+background-color: #f8f8f8;
+color: #151515;
+padding: 20px;
+text-align: center;
+width: 100%;
+}
 
-footer > h3 {
-    text-align: center;
-    font-family: Arial;
-    
-
+footer > h1 {
+text-align: center;
+font-family: Arial, sans-serif;
 }

@@ -10,9 +10,17 @@ header {
     text-align: center;
 }
 
+nav {
+padding: 15px;
+}
 
-
-
+nav a {
+color: #c62828;
+margin: 0 15px;
+font-family: Arial, sans-serif;
+font-size: 20px;
+font-weight: bold;
+}
 
 .Fotos {
     display: flex;
