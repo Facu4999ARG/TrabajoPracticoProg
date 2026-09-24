@@ -25,6 +25,19 @@ formulario.addEventListener("submit", function(event) {
     const apellido = formulario.apellido.value;
     const correo = formulario.correo.value;
 
+    const hoy = new Date();
+
+    const anio = hoy.getFullYear();
+    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoy.getDate()).padStart(2, "0");
+
+    const fechaHoy = anio + "-" + mes + "-" + dia;
+
+    if (fecha < fechaHoy) {
+        alert("No podés reservar para una fecha anterior a hoy");
+        return;
+    }
+
     const reserva = {
         personas: personas,
         fecha: fecha,
