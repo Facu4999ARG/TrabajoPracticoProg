@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 body {
 display: flex;
 flex-wrap: wrap;
@@ -8,13 +9,19 @@ background-color: #151515;
 
 header {
 background-color: #f8f8f8;
-color: #151515;
+color: #030303;
 padding: 20px;
 text-align: center;
 width: 100%;
 }
 
 header,
+
+
+header h1 {
+  font-family: "Archivo Black", sans-serif;
+    font-size: 48px;
+}
 body > h1 {
 width: 100%;
 text-align: center;
@@ -35,19 +42,26 @@ font-weight: bold;
 
 .tarjeta {
 width: 300px;
-border: 1px solid #444;
+border: 1px solid #c62828;
 border-radius: 20px;
 overflow: hidden;
 font-family: Arial, sans-serif;
-background-color: #222;
+background-color: #1b1919;
+transition: transform 0.3s ease,box-shadow 0.3s ease;
 }
-
+.tarjeta:hover{
+    transform: translateY(-8px)scale(1.03);
+    box-shadow: 0 10px 25pc rgba(0,0,0,0.5);
+}
 .tarjeta > img {
 width: 100%;
 height: 150px;
 object-fit: cover;
-}
 
+}
+.contenido > a{
+color: #973535;
+}
 .contenido {
 padding: 15px;
 color: #e6e6e6;
@@ -68,5 +82,5 @@ width: 100%;
 
 footer > h1 {
 text-align: center;
-font-family: Arial, sans-serif;
+font-family: "Archivo Black", sans-serif;
 }
