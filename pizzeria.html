@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva - Pizzeria</title>
+    <link rel="stylesheet" href="Reservacss.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Pizzeria Napoletana</h1>
+           
+        <nav>
+            <a href="Inicio.html">Inicio</a>
+            <a href="Conocenos.html">Conocenos</a>
+            <a href="Catalogo.html">Catalogo</a>
+        </nav>
+    </header>
+
+   
+
+    <main>
+
+    <div class="Fotos">
+
+         <img class="FotoPrincipal" src="https://www.ocu.org/-/media/ocu/images/home/alimentacion/alimentos/pizzas_selector_1600x900.jpg?rev=6a81e278-07fc-4e95-9ba1-361063f35adf&hash=B8B1264AB6FC3F4B1AE140EB390208CD">
+
+        <div class="FotosChicas">
+
+         <img src="https://tse1.mm.bing.net/th/id/OIP.UzX7keniZqNE77esw-STlwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
+        
+            <img src="https://img.foodlogistics.com/files/base/acbm/fl/image/2018/03/pizza_hut.5a98457c37496.png?auto=format&h=720&q=70&w=1280">
+
+        </div>
+
+    </div>
+        <section class="Reserva">
+            <h1>Reservá tu lugar</h1>
+        <form class="Formulario">
+
+            <h2>Personas</h2>
+            <select name="lugares">
+                <option value="1">1 Persona</option>
+                <option value="2">2 Personas</option>
+                <option value="3">3 Personas</option>
+                <option value="4">4 Personas</option>
+                <option value="5">5 Persona</option>
+                <option value="6">6 Personas</option>
+                <option value="7">7 Personas</option>
+                <option value="8">8 Personas</option>
+                <option value="9">9 Personas</option>
+                <option value="10">10 Personas</option>
+            </select>
+
+            <h2>Fecha</h2>
+            <input type="date" name="fecha" required>
+
+            <h2>Hora</h2>
+            <div class="horas">
+                    <label>
+                     <input type="radio" name="hora" value="11:00" required> 11:00
+                </label>
+                <label>
+
+            <input type="radio" name="hora" value="12:00" required> 12:00
+                </label>
+
+            <label>
+            <input type="radio" name="hora" value="13:00"> 13:00
+            </label>
+
+            <label>
+            <input type="radio" name="hora" value="14:00"> 14:00
+            </label>
+
+            </div>
+
+            <h2>Nombre</h2>
+            <input type="text" name="nombre">
+
+            <h2>Apellido</h2>
+            <input type="text" name="apellido">
+
+            <h2>Correo</h2>
+            <input type="email" name="correo">
+
+            <button type="submit">
+                Reservar
+            </button>
+
+            <button type="button" id="btnmisreservas">
+                Mis Reservas
+            </button>
+            <button type="button" id="btnmodificar" style="display: none;">
+               Modificar Reserva
+            </button>
+
+            <button type="button" id="btneliminar">
+               Eliminar Reserva
+            </button>
+            <button type="button" id="btneliminar" style="display: none;">
+            Eliminar reserva
+            </button>
+
+            <div id="listareservas">
+                <h2>Mis Reservas</h2>
+            </div>
+
+        </form>
+        </section>
+
+    </main> 
+
+    <footer>
+        <p>Pizzeria Napoletana</p>
+    </footer>
+
+    <script src="ReservaJava.js"></script>
+
+</body>
+</html>
