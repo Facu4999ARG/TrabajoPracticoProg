@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -72,32 +73,12 @@ font-weight: bold;
 .Formulario h2 {
     font-size: 18px;
     color: #e6e6e6;
-}   
-
-.Formulario input[type="radio"] {
-    accent-color: #c62828;
 }
 
 .Formulario input[type="text"],
-.Formulario input[type="email"] {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #333;
-    color: #e6e6e6;
-    border: 1px solid #555;
-    border-radius: 5px;
-}
+.Formulario input[type="email"],
+.Formulario input[type="date"],
 .Formulario select {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #333;
-    color: #e6e6e6;
-    border: 1px solid #555;
-    border-radius: 5px;
-}
-.Formulario input[type="date"] {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
@@ -145,11 +126,7 @@ footer {
     background-color: #333;
     border: 1px solid #555;
     border-radius: 5px;
-
-
-
 }
-
 
 @media (max-width: 900px) {
 
@@ -163,8 +140,6 @@ footer {
         width: 80%;
     }
 }
-
-
 
 @media (max-width: 600px) {
 
@@ -204,6 +179,12 @@ footer {
     header h1 {
         font-size: 28px;
     }
+
+    .Formulario button {
+        font-size: 14px;
+    }
+}
+
 
     .Formulario button {
         font-size: 14px;
