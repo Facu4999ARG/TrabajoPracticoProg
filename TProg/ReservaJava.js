@@ -4,8 +4,9 @@ const botonreserva = document.querySelector("#btnmisreservas");
 const listareservas = document.querySelector("#listareservas");
 const botoneliminar = document.querySelector("#btneliminar");
 const botonmodificar = document.querySelector("#btnmodificar");
-
-const reservaGuardada = localStorage.getItem("reserva");
+const restaurante = document.body.dataset.restaurante;
+const claveReserva = "reserva_" + restaurante;
+const reservaGuardada = localStorage.getItem(claveReserva);
 
 if (reservaGuardada) {
     botoneliminar.style.display = "block";
@@ -47,7 +48,7 @@ formulario.addEventListener("submit", function(event) {
         correo: correo
     };
 
-    localStorage.setItem("reserva", JSON.stringify(reserva));
+   localStorage.setItem(claveReserva, JSON.stringify(reserva));
 
     alert("¡Reserva hecha!");
 
@@ -63,7 +64,7 @@ botonreserva.addEventListener("click", function() {
 
     } else {
 
-        const reservaGuardada = JSON.parse(localStorage.getItem("reserva"));
+        const reservaGuardada = JSON.parse(localStorage.getItem(claveReserva));
 
         listareservas.style.display = "block";
 
@@ -88,7 +89,7 @@ botonreserva.addEventListener("click", function() {
 
 botonmodificar.addEventListener("click", function() {
 
-    const reservaGuardada = JSON.parse(localStorage.getItem("reserva"));
+    const reservaGuardada = JSON.parse(localStorage.getItem(claveReserva));
 
     if (reservaGuardada) {
 
@@ -111,7 +112,7 @@ botonmodificar.addEventListener("click", function() {
 
 botoneliminar.addEventListener("click", function() {
 
-    localStorage.removeItem("reserva");
+    localStorage.removeItem(claveReserva);
 
     listareservas.innerHTML = "";
     listareservas.style.display = "none";
@@ -119,6 +120,10 @@ botoneliminar.addEventListener("click", function() {
     botoneliminar.style.display = "none";
     botonmodificar.style.display = "none";
 
+    formulario.reset();
+
+    alert("Reserva eliminada");
+}); 
     formulario.reset();
 
     alert("Reserva eliminada");
