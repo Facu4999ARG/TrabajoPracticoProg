@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="Reservacss.css">
 </head>
 
-<body>
+<body data-restaurante="sushi" >
 
     <header>
         <h1>TamagoSushi</h1>
         <nav>
-            <a href="Inicio.html">Inicio</a>
-            <a href="Conocenos.html">Conocenos</a>
-            <a href="Catalogo.html">Catalogo</a>
+        <a href="Inicio.html">Inicio</a>
+        <a href="Catalogo.html">Catalogo</a>
+        <a href="Conocenos.html">Conocenos</a>
         </nav>
     </header>
 
-  
+    
+
     <main>
 
     <div class="Fotos">
@@ -81,9 +82,14 @@
             <button type="button" id="btnmisreservas">
                 Mis Reservas
             </button>
-            <button type="button" id="btneliminar" style="display: none;">
-            Eliminar reserva
+            <button type="button" id="btnmodificar" style="display: none;">
+               Modificar Reserva
             </button>
+
+            <button type="button" id="btneliminar">
+               Eliminar Reserva
+            </button>
+           
 
             <div id="listareservas">
                 <h2>Mis Reservas</h2>
@@ -97,6 +103,12 @@
     <footer>
         <p>TamagoSushi</p>
     </footer>
+
+    <script src="ReservaJava.js"></script>
+
+</body>
+</html>
+
 
     <script src="ReservaJava.js"></script>
 
