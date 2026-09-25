@@ -17,4 +17,11 @@ Read/Leer: obtener la reserva y mostrarla en "Mis Reservas".
 Update/Actualizar: recuperar la reserva y cargar sus datos nuevamente en el formulario.
 Delete/Eliminar: borrar la reserva del localStorage.
 
-
+dejando esto en claro, nuestra division del trabajo fue:
+css y javaScript: grupal
+html:
+bodegon: Matias villalba
+Sushi: Facundo Ortiz
+Parrilla: Simon Zacchino
+Pizzeria: Ciro Sabariz
+inicio, catalogo y conocenos: grupal
