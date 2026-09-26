@@ -98,8 +98,13 @@ nav a {
     font-family: Arial, sans-serif;
 
     background-color: #222;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+    }
+ .tarjeta:hover{
+    transform: translateY(-8px)scale(1.03);
+    box-shadow: 0 10px 25pc rgba(0,0,0,0.5);
+    }
 
-}
 
 
 .tarjeta > img {
