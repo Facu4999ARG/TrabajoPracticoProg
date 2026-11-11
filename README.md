@@ -17,6 +17,16 @@ Read/Leer: obtener la reserva y mostrarla en "Mis Reservas".
 Update/Actualizar: recuperar la reserva y cargar sus datos nuevamente en el formulario.
 Delete/Eliminar: borrar la reserva del localStorage.
 
+*Como ejecutar y utilizar:*
+
+1. Descargar o clonar el proyecto.
+2. Abrir la carpeta `TProg` en Visual Studio Code.
+3. Abrir `Inicio.html` con Live Server o directamente en el navegador.
+4. Ingresar a Sushi, Pizzería, Parrilla o Bodegón para probar las reservas.
+5. Rellenar los debidos campos como corresponde (elegir cantidad de personas, introducir nombre, apellido, etc).
+6. oprimir el boton de "reservar" para haber realizado la reserva, tambien oprimir "mis reservas" para asegurarse de tener la reserva guardada.
+7. seguir explorando el proyecto a tu gusto, cuenta con un apartado de "catalogo" y "conocenos" para quienes desean conocer mas sobre la pagina!
+
 dejando esto en claro, nuestra division del trabajo fue:
 css y javaScript: grupal
 html:
