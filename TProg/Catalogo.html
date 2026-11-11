@@ -1,261 +1,123 @@
-
-<!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - La Tradicional</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="Catalogo.css">
 </head>
-
 <body>
-
     <header>
         <h1>La Tradicional</h1>
         <h2>Catálogo de Restaurantes</h2>
-
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
         <nav>
             <a href="Inicio.html">Inicio</a>
-            <a href="Conocenos.html">Conocenos</a>
+            <a href="Catalogo.html">Catálogo</a>
+            <a href="conocenos.html">Conócenos</a>
         </nav>
     </header>
-
-
     <main class="catalogo">
-
-        <div class="tarjeta">
-
-            <img src="https://images.adsttc.com/media/images/5bf3/587a/08a5/e546/9600/024d/newsletter/a_(1).jpg?1542674533" alt="Restaurante de sushi">
-
+        <article class="tarjeta">
+            <img src="img/sushi1.jpg" alt="Restaurante de sushi">
             <div class="contenido">
-
                 <h3>🍣 Restaurante de Sushi 🍣</h3>
-
-                <p>⭐ 8.8 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 4 personas</p>
-
+                <p>⭐ 8.8 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 4 personas</p>
+                <a class="reservar" href="sushi.html">Reservar</a>
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/8b/41/97/caption.jpg?w=1000&h=1000&s=1" alt="Parrilla">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/parrilla1.jpg" alt="Parrilla">
             <div class="contenido">
-
                 <h3>🥩 Parrilla 🍖</h3>
-
-                <p>⭐ 9.2 | ⭐⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 8 personas</p>
-
+                <p>⭐ 9.2 | ⭐⭐⭐⭐⭐</p><hr><p>Mesa hasta 10 personas</p>
+                <a class="reservar" href="parrilla.html">Reservar</a>
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://www.clarin.com/img/2022/09/07/OMq-qNKca_720x0__1.jpg" alt="Pizzeria">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/pizzeria1.jpg" alt="Pizzería">
             <div class="contenido">
-
-                <h3>🍕 Pizzeria 🍕</h3>
-
-                <p>⭐ 8.5 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 4 personas</p>
-
+                <h3>🍕 Pizzería 🍕</h3>
+                <p>⭐ 8.5 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 4 personas</p>
+                <a class="reservar" href="pizzeria.html">Reservar</a>
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/b2/6e/0f/anda-a-conocer-el-bodegon.jpg?w=900&h=500&s=1" alt="Bodegon">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/bodegon1.jpg" alt="Bodegón">
             <div class="contenido">
-
-                <h3>🍻 Bodegon 🍺</h3>
-
-                <p>⭐ 9.0 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 10 personas</p>
-
+                <h3>🍻 Bodegón 🍺</h3>
+                <p>⭐ 9.0 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 10 personas</p>
+                <a class="reservar" href="bodegon.html">Reservar</a>
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmLGY6G00trfEnwWoUe0zmqBs5GuqixSYYDkDOp5hQdZODY7tiS44EMnKr&s=10">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/italiano.jpg" alt="Restaurante italiano">
             <div class="contenido">
-
                 <h3>🍝 Italiano 🍝</h3>
-
-                <p>⭐ 8.7 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 6 personas</p>
-
+                <p>⭐ 8.7 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 6 personas</p>
+                
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfzPJAKw8SzjcnnZvyeGbKMB-7CP5lBzkBiBongdoQywiUwy01NYULLfJy&s=10">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/frances.jpg" alt="Restaurante francés">
             <div class="contenido">
-
-                <h3>🍷 Frances 🍷</h3>
-
-                <p>⭐ 9.4 | ⭐⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 6 personas</p>
-
+                <h3>🍷 Francés 🍷</h3>
+                <p>⭐ 9.4 | ⭐⭐⭐⭐⭐</p><hr><p>Mesa hasta 6 personas</p>
+                
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/1e/82/7b/img-20190629-wa0058-largejpg.jpg?w=500&h=-1&s=1">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/indio.jpg" alt="Restaurante indio">
             <div class="contenido">
-
                 <h3>🍽️ Indio 🍽️</h3>
-
-                <p>⭐ 8.9 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 8 personas</p>
-
+                <p>⭐ 8.9 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 8 personas</p>
+                
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNoPv5ioHu1Sa4T2Y5cngkIqqME9YbUTTjeyZKAuPh115rpfSvlsaA0onu&s=10">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/hamburguesa.jpg" alt="Hamburguesería">
             <div class="contenido">
-
                 <h3>🍔 Hamburguesería 🍔</h3>
-
-                <p>⭐ 2.6 | ⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 6 personas</p>
-
+                <p>⭐ 2.6 | ⭐⭐</p><hr><p>Mesa hasta 6 personas</p>
+                
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/f8/c9/8c/starbucks-coffee-honduras.jpg?w=900&h=500&s=1">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/cafeteria.jpg" alt="Cafetería">
             <div class="contenido">
-
-                <h3>☕ Starbucks 🧁</h3>
-
-                <p>⭐ 8.4 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 4 personas</p>
-
+                <h3>☕ Cafetería 🧁</h3>
+                <p>⭐ 8.4 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 4 personas</p>
+                
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/4a/23/da/caption.jpg">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/mexicano.jpg" alt="Restaurante mexicano">
             <div class="contenido">
-
-                <h3>🌮 Mexicano 🌮 </h3>
-
-                <p>⭐ 8.9 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 10 personas</p>
-
+                <h3>🌮 Mexicano 🌮</h3>
+                <p>⭐ 8.9 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 10 personas</p>
+                
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/PVYN6OES2BB6TBVSCA2ZREA3CM.jpg">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/vegano.jpg" alt="Restaurante vegano">
             <div class="contenido">
-
                 <h3>🥗 Restaurante Vegano 🥑</h3>
-
-                <p>⭐ 8.3 | ⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 4 personas</p>
-
+                <p>⭐ 8.3 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 4 personas</p>
+                
             </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-
-            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80">
-
+        </article>
+        <article class="tarjeta">
+            <img src="img/bar.jpg" alt="Bar">
             <div class="contenido">
-
                 <h3>🍸 Bar 🍸</h3>
-
-                <p>⭐ 9.1 | ⭐⭐⭐⭐⭐</p>
-
-                <hr>
-
-                <p>Mesa hasta 8 personas</p>
-
+                <p>⭐ 9.1 | ⭐⭐⭐⭐⭐</p><hr><p>Mesa hasta 8 personas</p>
+                
             </div>
-
-        </div>
-
+        </article>
     </main>
-
-
-    <footer>
-        <h1>La Tradicional</h1>
-    </footer>
-
+    <footer><h2>La Tradicional</h2></footer>
+    <script src="menu.js"></script>
 </body>
 </html>
+
