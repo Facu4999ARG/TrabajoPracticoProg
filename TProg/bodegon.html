@@ -3,121 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva - Bodegon</title>
+    <title>Reserva - BODEGÓN FAMILIAR</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="Reservacss.css">
 </head>
-
 <body data-restaurante="bodegon">
-
     <header>
-        <h1>BODEGON FAMILIAR</h1>
-           
+        <h1>BODEGÓN FAMILIAR</h1>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
         <nav>
             <a href="Inicio.html">Inicio</a>
-            <a href="Conocenos.html">Conocenos</a>
-            <a href="Catalogo.html">Catalogo</a>
+            <a href="Catalogo.html">Catálogo</a>
+            <a href="conocenos.html">Conócenos</a>
         </nav>
     </header>
 
-   
-
     <main>
+        <section class="Fotos" aria-label="Galería de BODEGÓN FAMILIAR">
+            <img class="FotoPrincipal" src="img/bodegon1.jpg" alt="Vista principal de BODEGÓN FAMILIAR">
+            <div class="FotosChicas">
+                <img src="img/bodegon2.jpg" alt="Vista del restaurante BODEGÓN FAMILIAR">
+                <img src="img/bodegon3.jpg" alt="Otra vista de BODEGÓN FAMILIAR">
+            </div>
+        </section>
 
-    <div class="Fotos">
-
-         <img class="FotoPrincipal" src="https://media.c5n.com/p/2532e5309032c5d2f3faf83a12070b66/adjuntos/326/imagenes/000/296/0000296061/790x0/smart/parrilla-el-ferroviario-asado.jpg">
-
-        <div class="FotosChicas">
-
-         <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Milanesa_napolitana_argentina.jpg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original">
-        
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX-IFfWVcbs_bGg6JA1mAVKOH2wgSrOn2XSiH-0tkzIUpbXgPyaGnX2zF9&s=10">
-
-        </div>
-
-    </div>
         <section class="Reserva">
             <h1>Reservá tu lugar</h1>
-        <form class="Formulario">
-
-            <h2>Personas</h2>
-            <select name="lugares">
+            <form class="Formulario" novalidate>
+                <label for="lugares">Personas</label>
+                <select id="lugares" name="lugares" required>
+                <option value="">Seleccionar...</option>
                 <option value="1">1 Persona</option>
                 <option value="2">2 Personas</option>
                 <option value="3">3 Personas</option>
                 <option value="4">4 Personas</option>
-                <option value="5">5 Persona</option>
+                <option value="5">5 Personas</option>
                 <option value="6">6 Personas</option>
                 <option value="7">7 Personas</option>
                 <option value="8">8 Personas</option>
                 <option value="9">9 Personas</option>
                 <option value="10">10 Personas</option>
-            </select>
+                </select>
+                <small class="error" id="error-lugares" aria-live="polite"></small>
 
-            <h2>Fecha</h2>
-            <input type="date" name="fecha" required>
+                <label for="fecha">Fecha</label>
+                <input id="fecha" type="date" name="fecha" required>
+                <small class="error" id="error-fecha" aria-live="polite"></small>
 
-            <h2>Hora</h2>
-            <div class="horas">
-                    <label>
-                     <input type="radio" name="hora" value="11:00" required> 11:00
-                </label>
-                <label>
+                <span>Hora</span>
+                <div class="horas">
+                <label><input type="radio" name="hora" value="11:00"> 11:00</label>
+                <label><input type="radio" name="hora" value="12:00"> 12:00</label>
+                <label><input type="radio" name="hora" value="13:00"> 13:00</label>
+                <label><input type="radio" name="hora" value="14:00"> 14:00</label>
+                </div>
+                <small class="error" id="error-hora" aria-live="polite"></small>
 
-            <input type="radio" name="hora" value="12:00" required> 12:00
-                </label>
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" name="nombre" required>
+                <small class="error" id="error-nombre" aria-live="polite"></small>
 
-            <label>
-            <input type="radio" name="hora" value="13:00"> 13:00
-            </label>
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" name="apellido" required>
+                <small class="error" id="error-apellido" aria-live="polite"></small>
 
-            <label>
-            <input type="radio" name="hora" value="14:00"> 14:00
-            </label>
+                <label for="correo">Correo</label>
+                <input id="correo" type="email" name="correo" required>
+                <small class="error" id="error-correo" aria-live="polite"></small>
 
-            </div>
+                <div class="botones">
+                    <button type="submit">Reservar</button>
+                    <button type="button" id="btnmisreservas">Mis Reservas</button>
+                    <button type="button" id="btnmodificar" style="display:none">Modificar Reserva</button>
+                    <button type="button" id="btneliminar" style="display:none">Eliminar Reserva</button>
+                </div>
 
-            <h2>Nombre</h2>
-            <input type="text" name="nombre">
-
-            <h2>Apellido</h2>
-            <input type="text" name="apellido">
-
-            <h2>Correo</h2>
-            <input type="email" name="correo">
-
-            <button type="submit">
-                Reservar
-            </button>
-
-            <button type="button" id="btnmisreservas">
-                Mis Reservas
-            </button>
-            <button type="button" id="btnmodificar" style="display: none;">
-               Modificar Reserva
-            </button>
-
-            <button type="button" id="btneliminar">
-               Eliminar Reserva
-            </button>
-            <button type="button" id="btneliminar" style="display: none;">
-            Eliminar reserva
-            </button>
-
-            <div id="listareservas">
-                <h2>Mis Reservas</h2>
-            </div>
-
-        </form>
+                <div id="listareservas"></div>
+            </form>
         </section>
+    </main>
 
-    </main> 
-
-    <footer>
-        <p>Bodegon</p>
-    </footer>
-
+    <footer><p>BODEGÓN FAMILIAR</p></footer>
+    <script src="menu.js"></script>
     <script src="ReservaJava.js"></script>
-
 </body>
 </html>
