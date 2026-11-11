@@ -1,130 +1,195 @@
-const formulario = document.querySelector(".Formulario");
+const formulario = document.querySelector('.Formulario');
+const botonMisReservas = document.querySelector('#btnmisreservas');
+const listaReservas = document.querySelector('#listareservas');
+const botonEliminar = document.querySelector('#btneliminar');
+const botonModificar = document.querySelector('#btnmodificar');
 
-const botonreserva = document.querySelector("#btnmisreservas");
-const listareservas = document.querySelector("#listareservas");
-const botoneliminar = document.querySelector("#btneliminar");
-const botonmodificar = document.querySelector("#btnmodificar");
 const restaurante = document.body.dataset.restaurante;
-const claveReserva = "reserva_" + restaurante;
-const reservaGuardada = localStorage.getItem(claveReserva);
+const claveReserva = 'reserva_' + restaurante;
 
-if (reservaGuardada) {
-    botoneliminar.style.display = "block";
-    botonmodificar.style.display = "block";
-} else {
-    botoneliminar.style.display = "none";
-    botonmodificar.style.display = "none";
+const lugares = formulario.lugares;
+const fecha = formulario.fecha;
+const nombre = formulario.nombre;
+const apellido = formulario.apellido;
+const correo = formulario.correo;
+const horarios = document.querySelectorAll('input[name="hora"]');
+
+function mostrarError(id, mensaje) {
+    document.querySelector(id).textContent = mensaje;
 }
 
-formulario.addEventListener("submit", function(event) {
-    event.preventDefault();
+function validarLugares() {
+    if (lugares.value === '') {
+        mostrarError('#error-lugares', 'Seleccioná la cantidad de personas.');
+        return false;
+    }
+    mostrarError('#error-lugares', '');
+    return true;
+}
 
-    const personas = formulario.lugares.value;
-    const fecha = formulario.fecha.value;
-    const hora = formulario.hora.value;
-    const nombre = formulario.nombre.value;
-    const apellido = formulario.apellido.value;
-    const correo = formulario.correo.value;
+function validarFecha() {
+    if (fecha.value === '') {
+        mostrarError('#error-fecha', 'Seleccioná una fecha.');
+        return false;
+    }
 
     const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+    const fechaElegida = new Date(fecha.value + 'T00:00:00');
 
-    const anio = hoy.getFullYear();
-    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
-    const dia = String(hoy.getDate()).padStart(2, "0");
+    if (fechaElegida < hoy) {
+        mostrarError('#error-fecha', 'La fecha no puede ser anterior a hoy.');
+        return false;
+    }
 
-    const fechaHoy = anio + "-" + mes + "-" + dia;
+    mostrarError('#error-fecha', '');
+    return true;
+}
 
-    if (fecha < fechaHoy) {
-        alert("No podés reservar para una fecha anterior a hoy");
+function validarHora() {
+    const horaElegida = document.querySelector('input[name="hora"]:checked');
+    if (!horaElegida) {
+        mostrarError('#error-hora', 'Seleccioná un horario.');
+        return false;
+    }
+    mostrarError('#error-hora', '');
+    return true;
+}
+
+function validarNombre() {
+    if (nombre.value.trim().length < 2) {
+        mostrarError('#error-nombre', 'Ingresá un nombre válido.');
+        return false;
+    }
+    mostrarError('#error-nombre', '');
+    return true;
+}
+
+function validarApellido() {
+    if (apellido.value.trim().length < 2) {
+        mostrarError('#error-apellido', 'Ingresá un apellido válido.');
+        return false;
+    }
+    mostrarError('#error-apellido', '');
+    return true;
+}
+
+function validarCorreo() {
+    const valor = correo.value.trim();
+    if (valor === '' || !valor.includes('@') || !valor.includes('.')) {
+        mostrarError('#error-correo', 'Ingresá un correo válido.');
+        return false;
+    }
+    mostrarError('#error-correo', '');
+    return true;
+}
+
+function limpiarErrores() {
+    mostrarError('#error-lugares', '');
+    mostrarError('#error-fecha', '');
+    mostrarError('#error-hora', '');
+    mostrarError('#error-nombre', '');
+    mostrarError('#error-apellido', '');
+    mostrarError('#error-correo', '');
+}
+
+function actualizarBotones() {
+    const hayReserva = localStorage.getItem(claveReserva) !== null;
+    botonEliminar.style.display = hayReserva ? 'block' : 'none';
+    botonModificar.style.display = hayReserva ? 'block' : 'none';
+}
+
+lugares.addEventListener('change', validarLugares);
+fecha.addEventListener('change', validarFecha);
+nombre.addEventListener('input', validarNombre);
+apellido.addEventListener('input', validarApellido);
+correo.addEventListener('input', validarCorreo);
+horarios.forEach(radio => radio.addEventListener('change', validarHora));
+
+formulario.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const lugaresValidos = validarLugares();
+    const fechaValida = validarFecha();
+    const horaValida = validarHora();
+    const nombreValido = validarNombre();
+    const apellidoValido = validarApellido();
+    const correoValido = validarCorreo();
+
+    if (!(lugaresValidos && fechaValida && horaValida && nombreValido && apellidoValido && correoValido)) {
         return;
     }
 
+    const horaElegida = document.querySelector('input[name="hora"]:checked');
     const reserva = {
-        personas: personas,
-        fecha: fecha,
-        hora: hora,
-        nombre: nombre,
-        apellido: apellido,
-        correo: correo
+        personas: lugares.value,
+        fecha: fecha.value,
+        hora: horaElegida.value,
+        nombre: nombre.value.trim(),
+        apellido: apellido.value.trim(),
+        correo: correo.value.trim()
     };
 
-   localStorage.setItem(claveReserva, JSON.stringify(reserva));
+    localStorage.setItem(claveReserva, JSON.stringify(reserva));
+    alert('¡Reserva hecha!');
 
-    alert("¡Reserva hecha!");
-
-    botoneliminar.style.display = "block";
-    botonmodificar.style.display = "block";
+    formulario.reset();
+    limpiarErrores();
+    listaReservas.style.display = 'none';
+    actualizarBotones();
 });
 
-botonreserva.addEventListener("click", function() {
-
-    if (listareservas.style.display === "block") {
-
-        listareservas.style.display = "none";
-
-    } else {
-
-        const reservaGuardada = JSON.parse(localStorage.getItem(claveReserva));
-
-        listareservas.style.display = "block";
-
-        if (reservaGuardada) {
-
-            listareservas.innerHTML =
-                "<h3>Mis reservas</h3>" +
-                "<p><strong>Personas:</strong> " + reservaGuardada.personas + "</p>" +
-                "<p><strong>Fecha:</strong> " + reservaGuardada.fecha + "</p>" +
-                "<p><strong>Hora:</strong> " + reservaGuardada.hora + "</p>" +
-                "<p><strong>Nombre:</strong> " + reservaGuardada.nombre + "</p>" +
-                "<p><strong>Apellido:</strong> " + reservaGuardada.apellido + "</p>" +
-                "<p><strong>Correo:</strong> " + reservaGuardada.correo + "</p>";
-
-        } else {
-
-            listareservas.innerHTML = "<p>No hay reservas guardadas.</p>";
-
-        }
+botonMisReservas.addEventListener('click', function () {
+    if (listaReservas.style.display === 'block') {
+        listaReservas.style.display = 'none';
+        return;
     }
-});
-
-botonmodificar.addEventListener("click", function() {
 
     const reservaGuardada = JSON.parse(localStorage.getItem(claveReserva));
+    listaReservas.style.display = 'block';
 
-    if (reservaGuardada) {
-
-        formulario.lugares.value = reservaGuardada.personas;
-        formulario.fecha.value = reservaGuardada.fecha;
-        formulario.nombre.value = reservaGuardada.nombre;
-        formulario.apellido.value = reservaGuardada.apellido;
-        formulario.correo.value = reservaGuardada.correo;
-
-        const horarios = document.querySelectorAll('input[name="hora"]');
-
-        for (let i = 0; i < horarios.length; i++) {
-
-            if (horarios[i].value === reservaGuardada.hora) {
-                horarios[i].checked = true;
-            }
-        }
+    if (!reservaGuardada) {
+        listaReservas.innerHTML = '<p>No hay reservas guardadas.</p>';
+        return;
     }
+
+    listaReservas.innerHTML = `
+        <h3>Mi reserva</h3>
+        <p><strong>Personas:</strong> ${reservaGuardada.personas}</p>
+        <p><strong>Fecha:</strong> ${reservaGuardada.fecha}</p>
+        <p><strong>Hora:</strong> ${reservaGuardada.hora}</p>
+        <p><strong>Nombre:</strong> ${reservaGuardada.nombre}</p>
+        <p><strong>Apellido:</strong> ${reservaGuardada.apellido}</p>
+        <p><strong>Correo:</strong> ${reservaGuardada.correo}</p>
+    `;
 });
 
-botoneliminar.addEventListener("click", function() {
+botonModificar.addEventListener('click', function () {
+    const reservaGuardada = JSON.parse(localStorage.getItem(claveReserva));
+    if (!reservaGuardada) return;
 
+    lugares.value = reservaGuardada.personas;
+    fecha.value = reservaGuardada.fecha;
+    nombre.value = reservaGuardada.nombre;
+    apellido.value = reservaGuardada.apellido;
+    correo.value = reservaGuardada.correo;
+
+    const radioHora = document.querySelector(`input[name="hora"][value="${reservaGuardada.hora}"]`);
+    if (radioHora) radioHora.checked = true;
+
+    limpiarErrores();
+    listaReservas.style.display = 'none';
+    formulario.scrollIntoView({ behavior: 'smooth' });
+});
+
+botonEliminar.addEventListener('click', function () {
     localStorage.removeItem(claveReserva);
-
-    listareservas.innerHTML = "";
-    listareservas.style.display = "none";
-
-    botoneliminar.style.display = "none";
-    botonmodificar.style.display = "none";
-
     formulario.reset();
-
-    alert("Reserva eliminada");
-}); 
-    formulario.reset();
-
-    alert("Reserva eliminada");
+    limpiarErrores();
+    listaReservas.innerHTML = '';
+    listaReservas.style.display = 'none';
+    actualizarBotones();
+    alert('Reserva eliminada');
 });
+
+actualizarBotones();
