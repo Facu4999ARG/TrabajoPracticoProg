@@ -1,69 +1,69 @@
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-header {
-background-color: #f8f8f8;
-color: #030303;
-padding: 20px;
-text-align: center;
-width: 100%;
-}
-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #f1f1f1;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-section p{
-    text-align: center;
-    max-width: 800px;
-    margin-bottom: 20px;
-}
+* { box-sizing: border-box; }
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
+    font-family: Arial, sans-serif;
     background-color: #151515;
+    color: #f1f1f1;
 }
 
-nav{
+header, footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f8f8;
+    color: #151515;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
     padding: 15px;
 }
 
-
-nav a{
-color: #c62828;
-margin: 0 15px;
-font-family: Arial, sans-serif;
-font-size: 20px;
-font-weight: bold;
-padding: 10px;
+nav a {
+    color: #c62828;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-img{
-    width: 30px;
-    height: 30px;
-    margin-bottom: 20px;    
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
- 
-footer > h1 {
-    margin: 5px;
-text-align: center;
-font-family: "Archivo Black", sans-serif;
+.menu-toggle {
+    display: none;
+    margin: 10px auto 0;
+    border: 0;
+    background: transparent;
+    color: #c62828;
+    font-size: 30px;
+    cursor: pointer;
 }
 
-footer {
-background-color: #f8f8f8;
-color: #151515;
-padding: 20px;
-text-align: center;
-width: 100%;
+main {
+    width: min(1000px, 92%);
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.nosotros {
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.nosotros p { max-width: 800px; }
+.imagen-equipo { width: 100%; max-width: 260px; justify-self: center; }
+
+@media (max-width: 800px) {
+    main { grid-template-columns: 1fr; text-align: center; }
+}
+
+@media (max-width: 600px) {
+    .menu-toggle { display: block; }
+    nav { display: none; flex-direction: column; gap: 12px; }
+    nav.abierto { display: flex; }
+    .nosotros { font-size: 18px; }
 }
 
