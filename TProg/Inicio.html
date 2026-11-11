@@ -1,107 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaTradicional</title>
-    <link rel="stylesheet" href="cssinicio.css">
+    <title>La Tradicional</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="cssInicio.css">
 </head>
-
 <body>
     <header>
-        <h1>La Tradicional</h1> 
+        <h1>La Tradicional</h1>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
         <nav>
             <a href="Inicio.html">Inicio</a>
-            <a href="Catalogo.html">Catalogo</a>
-            <a href="Conocenos.html">Conocenos</a>
-           
+            <a href="Catalogo.html">Catálogo</a>
+            <a href="conocenos.html">Conócenos</a>
         </nav>
     </header>
-        
-  <div  class="tarjeta">
-    
-    <img src="https://images.adsttc.com/media/images/5bf3/587a/08a5/e546/9600/024d/newsletter/a_(1).jpg?1542674533" alt="Restaurante de sushi">
-    
-    
-    <div class="contenido">
-        
-        <a href="sushi.html"><h2>Reservar Aqui</h2></a>
 
+    <main class="restaurantes">
+        <article class="tarjeta">
+            <img src="img/sushi1.jpg" alt="Restaurante de sushi">
+            <div class="contenido">
+                <h2><a href="sushi.html">Reservar Aquí</a></h2>
+                <h3>🍣 Restaurante de Sushi 🍣</h3>
+                <p>⭐ 8.8 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 4 personas</p>
+            </div>
+        </article>
 
-        <h3>🍣Restaurante de Sushi🍣</h3>
+        <article class="tarjeta">
+            <img src="img/parrilla1.jpg" alt="Parrilla">
+            <div class="contenido">
+                <h2><a href="parrilla.html">Reservar Aquí</a></h2>
+                <h3>🥩 Parrilla 🍖</h3>
+                <p>⭐ 9.2 | ⭐⭐⭐⭐⭐</p><hr><p>Mesa hasta 10 personas</p>
+            </div>
+        </article>
 
-        <p>⭐ 8.8 | ⭐⭐⭐⭐</p>
+        <article class="tarjeta">
+            <img src="img/pizzeria1.jpg" alt="Pizzería">
+            <div class="contenido">
+                <h2><a href="pizzeria.html">Reservar Aquí</a></h2>
+                <h3>🍕 Pizzería 🍕</h3>
+                <p>⭐ 8.5 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 4 personas</p>
+            </div>
+        </article>
 
-        <hr>
+        <article class="tarjeta">
+            <img src="img/bodegon1.jpg" alt="Bodegón">
+            <div class="contenido">
+                <h2><a href="bodegon.html">Reservar Aquí</a></h2>
+                <h3>🍻 Bodegón 🍺</h3>
+                <p>⭐ 9.0 | ⭐⭐⭐⭐</p><hr><p>Mesa hasta 10 personas</p>
+            </div>
+        </article>
+    </main>
 
-        <p>Mesa hasta 4 personas</p>
-
-       
-
-        
-    </div>
-
-</div>
-
-<div class="tarjeta">
-
-    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/8b/41/97/caption.jpg?w=1000&h=1000&s=1">
-
-    <div class="contenido">
-        
-        <a href="parrilla.html"><h2>Reservar Aqui</h2></a>
-
-        <h3>🥩Parrilla🍖</h3>
-
-        <p>⭐ 9.2 | ⭐⭐⭐⭐⭐</p>
-
-        <hr>
-
-        <p>Mesa hasta 8 personas</p>
-    </div>
-
-</div>
-
-<div class="tarjeta">
-
-    <img src="https://www.clarin.com/img/2022/09/07/OMq-qNKca_720x0__1.jpg">
-
-    <div class="contenido">
-        
-        <a href="pizzeria.html"><h2>Reservar Aqui</h2></a>
-
-        <h3>🍕Pizzeria🍕</h3>
-
-        <p>⭐ 8.5 | ⭐⭐⭐⭐</p>
-
-        <hr>
-
-        <p>Mesa hasta 4 personas</p>
-    </div>
-
-</div>
-
-<div class="tarjeta">
-
-    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/b2/6e/0f/anda-a-conocer-el-bodegon.jpg?w=900&h=500&s=1">
-
-    <div class="contenido">
-        
-        <a href="bodegon.html"><h2>Reservar Aqui</h2></a>
-
-        <h3>🍻Bodegon🍺</h3>
-
-        <p>⭐ 9.0 | ⭐⭐⭐⭐</p>
-
-        <hr>
-
-        <p>Mesa hasta 10 personas</p>
-    </div>
-</div>
-
-<footer>
-    <h1>La Tradicional</h1>
-</footer>
-
+    <footer><h2>La Tradicional</h2></footer>
+    <script src="menu.js"></script>
 </body>
 </html>
+
