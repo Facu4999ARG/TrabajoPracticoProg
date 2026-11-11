@@ -1,60 +1,97 @@
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #151515;
+    color: #e6e6e6;
 }
 
 header {
     background-color: #f8f8f8;
+    color: #151515;
     padding: 20px;
     text-align: center;
 }
 
 nav {
-padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 15px;
 }
 
 nav a {
-color: #c62828;
-margin: 0 15px;
-font-family: Arial, sans-serif;
-font-size: 20px;
-font-weight: bold;
+    color: #c62828;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-.Fotos {
+nav a:hover {
+    text-decoration: underline;
+}
+
+.menu-toggle {
+    display: none;
+    margin: 10px auto 0;
+    border: none;
+    background: transparent;
+    color: #c62828;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* IMPORTANTE:
+   main está en columna para que la galería y la reserva
+   sean bloques separados y jamás se superpongan. */
+main {
+    width: 100%;
     display: flex;
-    width: 80%;
-    max-width: 1200px;
-    height: 400px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* GALERÍA */
+.Fotos {
+    width: min(1200px, 90%);
+    height: 500px;
+    margin: 30px auto 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     gap: 10px;
-    margin: 30px 0;
 }
 
 .FotoPrincipal {
-    width: 65%;
+    width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
 }
 
 .FotosChicas {
-    width: 35%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     gap: 10px;
 }
 
 .FotosChicas img {
     width: 100%;
-    height: calc((100% - 10px) / 2);
+    height: 100%;
+    min-height: 0;
+    display: block;
     object-fit: cover;
 }
 
+/* FORMULARIO */
 .Reserva {
-    width: 500px;
-    margin: 50px auto;
+    width: min(560px, 90%);
+    margin: 40px auto 60px;
     padding: 30px;
     background-color: #222;
     border: 1px solid #444;
@@ -62,16 +99,22 @@ font-weight: bold;
 }
 
 .Reserva > h1 {
+    margin: 0 0 25px;
     text-align: center;
     color: #e6e6e6;
 }
 
 .Formulario {
     color: #e6e6e6;
+    display: flex;
+    flex-direction: column;
 }
 
-.Formulario h2 {
+.Formulario label,
+.Formulario > span {
+    margin: 12px 0 8px;
     font-size: 18px;
+    font-weight: bold;
     color: #e6e6e6;
 }
 
@@ -80,7 +123,6 @@ font-weight: bold;
 .Formulario input[type="date"],
 .Formulario select {
     width: 100%;
-    box-sizing: border-box;
     padding: 10px;
     background-color: #333;
     color: #e6e6e6;
@@ -88,35 +130,57 @@ font-weight: bold;
     border-radius: 5px;
 }
 
+.Formulario input[type="text"]:focus,
+.Formulario input[type="email"]:focus,
+.Formulario input[type="date"]:focus,
+.Formulario select:focus {
+    outline: 2px solid #c62828;
+    border-color: transparent;
+}
+
 .horas {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
+    margin: 4px 0;
+}
+
+.horas label {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
 }
 
 .Formulario input[type="radio"] {
     accent-color: #c62828;
 }
 
+.error {
+    min-height: 18px;
+    margin-top: 4px;
+    color: #ff7676;
+    font-size: 14px;
+}
+
+.botones {
+    display: grid;
+    gap: 10px;
+    margin-top: 15px;
+}
+
 .Formulario button {
     width: 100%;
     padding: 12px;
-    margin-top: 20px;
-    background-color: #c62828;
-    color: #fff;
     border: none;
     border-radius: 5px;
+    background-color: #c62828;
+    color: #fff;
     cursor: pointer;
     font-size: 16px;
 }
 
 .Formulario button:hover {
     background-color: #a51f1f;
-}
-
-footer {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
 }
 
 #listareservas {
@@ -128,65 +192,80 @@ footer {
     border-radius: 5px;
 }
 
-@media (max-width: 900px) {
-
-    .Fotos {
-        width: 90%;
-        height: 350px;
-        margin: 20px auto;
-    }
-
-    .Reserva {
-        width: 80%;
-    }
+footer {
+    background-color: #f8f8f8;
+    color: #151515;
+    padding: 20px;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-
+/* TABLET */
+@media (max-width: 900px) {
     .Fotos {
-        width: 90%;
         height: auto;
-        margin: 20px auto;
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
     .FotoPrincipal {
-        width: 100%;
-        height: 250px;
+        height: 360px;
     }
 
     .FotosChicas {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
     }
 
     .FotosChicas img {
-        width: 50%;
-        height: 150px;
+        height: 190px;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav.abierto {
+        display: flex;
+    }
+
+    .Fotos {
+        width: 92%;
+        margin-top: 20px;
+    }
+
+    .FotoPrincipal {
+        height: 260px;
+    }
+
+    .FotosChicas {
+        grid-template-columns: 1fr;
+    }
+
+    .FotosChicas img {
+        height: 180px;
     }
 
     .Reserva {
-        width: 90%;
+        width: 92%;
+        margin-top: 30px;
         padding: 20px;
-        box-sizing: border-box;
     }
 
     .horas {
         flex-direction: column;
+        gap: 10px;
     }
 
     header h1 {
         font-size: 28px;
     }
-
-    .Formulario button {
-        font-size: 14px;
-    }
 }
 
-
-    .Formulario button {
-        font-size: 14px;
-    }
-}
