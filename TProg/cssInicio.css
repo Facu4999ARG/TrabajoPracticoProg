@@ -1,86 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
 body {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 20px;
-background-color: #151515;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #151515;
+    color: #e6e6e6;
 }
 
-header {
-background-color: #f8f8f8;
-color: #030303;
-padding: 20px;
-text-align: center;
-width: 100%;
+header, footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f8f8;
+    color: #151515;
 }
 
-header,
-
-
-header h1 {
-  font-family: "Archivo Black", sans-serif;
-    font-size: 48px;
+header h1, footer h2 {
+    margin: 5px;
+    font-family: 'Archivo Black', sans-serif;
 }
-body > h1 {
-width: 100%;
-text-align: center;
-font-family: Arial, sans-serif;
-}
+
+header h1 { font-size: 48px; }
 
 nav {
-padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
 }
 
 nav a {
-color: #c62828;
-margin: 0 15px;
-font-family: Arial, sans-serif;
-font-size: 20px;
-font-weight: bold;
+    color: #c62828;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover { text-decoration: underline; }
+
+.menu-toggle {
+    display: none;
+    margin: 10px auto 0;
+    border: 0;
+    background: transparent;
+    color: #c62828;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.restaurantes {
+    width: min(1280px, 94%);
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .tarjeta {
-width: 300px;
-border: 1px solid #c62828;
-border-radius: 20px;
-overflow: hidden;
-font-family: Arial, sans-serif;
-background-color: #1b1919;
-transition: transform 0.3s ease,box-shadow 0.3s ease;
+    border: 1px solid #c62828;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #1b1919;
+    transition: transform .3s ease, box-shadow .3s ease;
 }
-.tarjeta:hover{
-    transform: translateY(-8px)scale(1.03);
-    box-shadow: 0 10px 25pc rgba(0,0,0,0.5);
+
+.tarjeta:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,.5);
 }
+
 .tarjeta > img {
-width: 100%;
-height: 150px;
-object-fit: cover;
-
-}
-.contenido > a{
-color: #973535;
-}
-.contenido {
-padding: 15px;
-color: #e6e6e6;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
 }
 
-.contenido h3 {
-margin: 10px 0;
-color: #e6e6e6;
+.contenido { padding: 15px; }
+.contenido h3 { margin: 10px 0; }
+.contenido a { color: #c95b5b; }
+
+@media (max-width: 1000px) {
+    .restaurantes { grid-template-columns: repeat(2, 1fr); }
 }
 
-footer {
-background-color: #f8f8f8;
-color: #151515;
-padding: 20px;
-text-align: center;
-width: 100%;
+@media (max-width: 600px) {
+    header h1 { font-size: 34px; }
+    .menu-toggle { display: block; }
+    nav { display: none; flex-direction: column; gap: 12px; }
+    nav.abierto { display: flex; }
+    .restaurantes { grid-template-columns: 1fr; }
 }
 
-footer > h1 {
-text-align: center;
-font-family: "Archivo Black", sans-serif;
-}
