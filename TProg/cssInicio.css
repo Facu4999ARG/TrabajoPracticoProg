@@ -92,4 +92,3 @@ nav a:hover { text-decoration: underline; }
     nav.abierto { display: flex; }
     .restaurantes { grid-template-columns: 1fr; }
 }
-
