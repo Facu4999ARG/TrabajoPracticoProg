@@ -1,116 +1,83 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva - Sushi</title>
+    <title>Reserva - TamagoSushi</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="Reservacss.css">
 </head>
-
-<body data-restaurante="sushi" >
-
+<body data-restaurante="sushi">
     <header>
         <h1>TamagoSushi</h1>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
         <nav>
-        <a href="Inicio.html">Inicio</a>
-        <a href="Catalogo.html">Catalogo</a>
-        <a href="Conocenos.html">Conocenos</a>
+            <a href="Inicio.html">Inicio</a>
+            <a href="Catalogo.html">Catálogo</a>
+            <a href="conocenos.html">Conócenos</a>
         </nav>
     </header>
 
-    
-
     <main>
+        <section class="Fotos" aria-label="Galería de TamagoSushi">
+            <img class="FotoPrincipal" src="img/sushi1.jpg" alt="Vista principal de TamagoSushi">
+            <div class="FotosChicas">
+                <img src="img/sushi2.jpg" alt="Vista del restaurante TamagoSushi">
+                <img src="img/sushi3.jpg" alt="Otra vista de TamagoSushi">
+            </div>
+        </section>
 
-    <div class="Fotos">
-
-         <img class="FotoPrincipal" src="https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/64EF898D-2EDD-4B47-A456-E6A7D137AC91/Derivates/00f76cac-64f6-4573-be4f-e604a7d99143.jpg">
-
-        <div class="FotosChicas">
-
-         <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c">
-        
-            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754">
-
-        </div>
-
-    </div>
         <section class="Reserva">
             <h1>Reservá tu lugar</h1>
-        <form class="Formulario">
-
-            <h2>Personas</h2>
-            <select name="lugares">
+            <form class="Formulario" novalidate>
+                <label for="lugares">Personas</label>
+                <select id="lugares" name="lugares" required>
+                <option value="">Seleccionar...</option>
                 <option value="1">1 Persona</option>
                 <option value="2">2 Personas</option>
                 <option value="3">3 Personas</option>
                 <option value="4">4 Personas</option>
-            </select>
+                </select>
+                <small class="error" id="error-lugares" aria-live="polite"></small>
 
-            <h2>Fecha</h2>
-            <input type="date" name="fecha">
+                <label for="fecha">Fecha</label>
+                <input id="fecha" type="date" name="fecha" required>
+                <small class="error" id="error-fecha" aria-live="polite"></small>
 
-            <h2>Hora</h2>
-            <div class="horas">
-                <label>
-            <input type="radio" name="hora" value="12:00" required> 12:00
-                </label>
+                <span>Hora</span>
+                <div class="horas">
+                <label><input type="radio" name="hora" value="12:00"> 12:00</label>
+                <label><input type="radio" name="hora" value="13:00"> 13:00</label>
+                <label><input type="radio" name="hora" value="14:00"> 14:00</label>
+                </div>
+                <small class="error" id="error-hora" aria-live="polite"></small>
 
-            <label>
-            <input type="radio" name="hora" value="13:00"> 13:00
-            </label>
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" name="nombre" required>
+                <small class="error" id="error-nombre" aria-live="polite"></small>
 
-            <label>
-            <input type="radio" name="hora" value="14:00"> 14:00
-            </label>
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" name="apellido" required>
+                <small class="error" id="error-apellido" aria-live="polite"></small>
 
-            </div>
+                <label for="correo">Correo</label>
+                <input id="correo" type="email" name="correo" required>
+                <small class="error" id="error-correo" aria-live="polite"></small>
 
-            <h2>Nombre</h2>
-            <input type="text" name="nombre">
+                <div class="botones">
+                    <button type="submit">Reservar</button>
+                    <button type="button" id="btnmisreservas">Mis Reservas</button>
+                    <button type="button" id="btnmodificar" style="display:none">Modificar Reserva</button>
+                    <button type="button" id="btneliminar" style="display:none">Eliminar Reserva</button>
+                </div>
 
-            <h2>Apellido</h2>
-            <input type="text" name="apellido">
-
-            <h2>Correo</h2>
-            <input type="email" name="correo">
-
-            <button type="submit">
-                Reservar
-            </button>
-
-            <button type="button" id="btnmisreservas">
-                Mis Reservas
-            </button>
-            <button type="button" id="btnmodificar" style="display: none;">
-               Modificar Reserva
-            </button>
-
-            <button type="button" id="btneliminar">
-               Eliminar Reserva
-            </button>
-           
-
-            <div id="listareservas">
-                <h2>Mis Reservas</h2>
-            </div>
-
-        </form>
+                <div id="listareservas"></div>
+            </form>
         </section>
+    </main>
 
-    </main> 
-
-    <footer>
-        <p>TamagoSushi</p>
-    </footer>
-
+    <footer><p>TamagoSushi</p></footer>
+    <script src="menu.js"></script>
     <script src="ReservaJava.js"></script>
-
-</body>
-</html>
-
-
-    <script src="ReservaJava.js"></script>
-
 </body>
 </html>
